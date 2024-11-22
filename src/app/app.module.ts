@@ -7,13 +7,13 @@ import { GetcharPipe } from './pipes/getchar.pipe';
 import { GetYearPipe } from './pipes/get-year.pipe';
 import { SongListComponent } from './components/song-list/song-list.component';
 import { SongFormComponent } from './components/song-form/song-form.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MusicAppComponent } from './components/music-app/music-app.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { ShowAnimationDirective } from './directives/show-animation.directive';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MusicService } from './services/music.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { MusicService } from './services/music.service';
     MusicAppComponent,      
     SongFormComponent,
     SongListComponent,    
-    NotFoundComponent,
     //pipes
     GetcharPipe,
     GetYearPipe,
@@ -33,7 +32,8 @@ import { MusicService } from './services/music.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,    
+    FormsModule,
+    SharedModule
   ],
   providers: [
     //services

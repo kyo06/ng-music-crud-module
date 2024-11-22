@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MusicAppComponent } from './components/music-app/music-app.component';
 import { SongFormComponent } from './components/song-form/song-form.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 
 // définition des routes
 // avec les modules, utiler component et pas loadChildren
@@ -22,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '404/:message',
-    component: NotFoundComponent
+    loadChildren: () => import('./shared/shared-routing.module').then(m => m.SharedRoutingModule)
   },
   {
     path: '**',
