@@ -1,0 +1,6 @@
+<h1 appHighlight [highlightColor]="'red'">Music App</h1>
+
+<button (click)="displaySongAddForm()" class="btn btn-primary">Add Song</button>
+<!-- <button routerLink="/add" class="btn btn-primary">Add Song</button> -->
+
+<app-song-list [appShowAnimation]="true" [songsList]="songs"></app-song-list>

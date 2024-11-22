@@ -1,0 +1,28 @@
+<table class="table table-bordered table-striped table-hover shadow-sm bg-white mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (song of songsList; track song.id) {
+      <tr>
+        <td>{{ song.title | uppercase }}</td>
+        <td>{{ song.artist | titlecase }}</td>
+        <td>{{ song.genre | getchar }}</td>
+        <td>{{ song.date | getYear }}</td>
+        <td>
+          <button (click)="editSong(song.id)" class="btn btn-warning btn-sm">Edit</button>
+          <button (click)="deleteSong(song.id)" class="btn btn-danger btn-sm">Delete</button>
+          <button (click)="likeSong(song.id, !song.liked)" class="btn btn-outline-primary btn-sm">
+            {{ song.liked ? '⭐' : '☆' }}
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
